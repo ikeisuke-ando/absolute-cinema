@@ -1,0 +1,191 @@
+.main {
+    width: 100%;
+    overflow: hidden;
+
+}
+
+.background {
+    /*background-image: url('images/posters/arcane.png');*/
+}
+
+.absolute-cinema {
+    font-size: 70px;
+    font-weight: 800;
+    color: yellow;
+    text-shadow:
+            -1px -1px 0 black,
+            1px -1px 0 black,
+            -1px 1px 0 black,
+            1px 1px 0 black;
+    display: flex;
+    justify-content: center;
+    /*align-items: center;*/
+}
+
+.sub-absolute-cinema {
+    color: white;
+    text-shadow:
+            -1px -1px 0 black,
+            1px -1px 0 black,
+            -1px 1px 0 black,
+            1px 1px 0 black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.wrapper {
+    display: flex;
+}
+
+.wrapper a {
+    text-decoration: none;
+}
+
+.wrapper li {
+    list-style: none;
+}
+
+.sidebar {
+    /*    width: 260px;
+    min-width: 260px; */
+    width: 70px;
+    min-width: 70px;
+    z-index: 1000;
+    background: yellow;
+    display: flex;
+    flex-direction: column;
+    transition: 0.25s ease-in-out;
+}
+
+.sidebar .expand {
+    width: 260px;
+    min-width: 260px;
+}
+
+.sidebar .toggle-btn {
+    background: transparent;
+    padding: 36px 28px;
+    border: 0;
+    cursor: pointer;
+}
+
+.toggle-btn i {
+    font-size: 24px;
+    color: black;
+}
+
+.sidebar .sidebar-logo {
+    margin: auto 0;
+}
+
+.sidebar:not(.expand) .sidebar-logo {
+    display: none;
+}
+
+.sidebar-logo a {
+    color: black;
+    font-size: 1.15rem;
+    font-weight: 600;
+}
+
+.sidebar-nav {
+    padding: 1rem 0;
+    flex: 1 1 auto;
+}
+
+.sidebar-item {
+    position: relative;
+}
+
+.sidebar-nav > .sidebar-item {
+    margin-bottom: 15px;
+}
+
+.sidebar .sidebar-link {
+    display: block;
+    padding: 0.6rem 1.6rem;
+    color: black;
+    font-size: 0.9rem;
+    white-space: nowrap;
+    border-left: 3px solid transparent;
+}
+
+.sidebar-link:hover {
+    background-color: rgba(255, 255, 255, 0.075);
+    border-left: 3px solid #4070f4;
+}
+
+.sidebar-link i {
+    font-size: 1.1rem;
+    margin-right: 0.75rem;
+}
+
+.sidebar:not(.expand) a.sidebar-link span {
+    display: none;
+}
+
+.sidebar:not(.expand) .sidebar-item .sidebar-dropdown {
+    position: absolute;
+    top: 0;
+    left: 70px;
+    background: yellow;
+    padding: 0;
+    min-width: 15rem;
+    display: none;
+}
+
+.sidebar:not(.expand) .sidebar-item .drop-two {
+    top: 100%;
+    left: 0;
+}
+
+.sidebar:not(.expand) .sidebar-item:hover > .sidebar-dropdown {
+    display: block;
+    max-height: 15em;
+    width: 100%;
+    opacity: 1;
+}
+
+.sidebar.expand .sidebar-link[data-bs-toggle="collapse"]::after {
+    position: absolute;
+    content: "";
+    display: inline-block;
+    border: solid;
+    border-width: 0 0.075rem 0.075rem 0;
+    padding: 2px;
+    right: 1.5rem;
+    top: 1.4rem;
+    transform: rotate(-135deg);
+    transition: all 0.2s ease-out;
+}
+
+.sidebar.expand .sidebar-link[data-bs-toggle="collapse"].collapsed::after {
+    transform: rotate(45deg);
+    transition: all 0.2s ease-out;
+}
+
+.sidebar .sidebar-footer {
+    margin-bottom: 1.5rem;
+}
+
+.space{
+    height: 50px;
+    background: transparent;
+}
+.form-lab {
+    width: 320px;
+    height: 320px;
+    background-color: gray;
+}
+
+.featured-movies {
+    width: auto;
+    height: 320px;
+    background-color: gray;
+}
+.featured-series {
+    width: auto;
+    height: 320px;
+    background-color: gray;
+}
