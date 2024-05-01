@@ -17,8 +17,12 @@ function addMoviesToHTML() {
     entries.forEach(entry => {
         const [movieName, movieSrc] = entry;
         const movieElement = document.createElement("img");
+
         movieElement.src = movieSrc;
         movieElement.alt = movieName;
+        movieElement.height = 400;
+        movieElement.style.marginRight = "2rem"
+
         movieListContainer.appendChild(movieElement);
     });
 }
@@ -30,9 +34,12 @@ function addSeriesToHTML() {
     entries.forEach(entry => {
         const [serieName, serieSrc] = entry;
         const serieElement = document.createElement("img");
+
         serieElement.src = serieSrc;
         serieElement.alt = serieName;
-        serieElement.height = 255;
+        serieElement.height = 400;
+        serieElement.style.marginRight = "2rem"
+
         serieListContainer.appendChild(serieElement);
     });
 }

@@ -8,7 +8,7 @@
 }
 
 .absolute-cinema {
-    font-size: 4rem; /* aproximadamente 70px */
+    font-size: 4rem;
     font-weight: 800;
     color: yellow;
     text-shadow:
@@ -46,8 +46,8 @@
 
 .sidebar {
     height: 100vh;
-    width: 5rem;
-    min-width: 5rem;
+    width: 10rem;
+    min-width: 10rem;
     z-index: 1000;
     background: yellow;
     display: flex;
@@ -56,19 +56,19 @@
 }
 
 .sidebar .expand {
-    width: 16rem; /* aproximadamente 260px */
-    min-width: 16rem; /* aproximadamente 260px */
+    width: 16rem;
+    min-width: 16rem;
 }
 
 .sidebar .toggle-btn {
     background: transparent;
-    padding: 1rem 1rem; /* aproximadamente 36px 28px */
+    padding: 1rem 1rem;
     border: 0;
     cursor: pointer;
 }
 
 .toggle-btn i {
-    font-size: 3rem; /* aproximadamente 24px */
+    font-size: 8rem;
     color: black;
 }
 
@@ -83,14 +83,14 @@
 }
 
 .sidebar-nav > .sidebar-item {
-    margin-bottom: 0.5rem;
+    margin-bottom: 1rem;
 }
 
 .sidebar .sidebar-link {
     display: block;
-    padding: 0.5rem 1.5rem;
+    padding: 1rem 3rem;
     color: black;
-    font-size: 1rem;
+    font-size: 1.5rem;
     border-left: 0.2rem solid transparent;
 }
 
@@ -100,7 +100,7 @@
 }
 
 .sidebar-link i {
-    font-size: 1.5rem;
+    font-size: 3rem;
     margin-right: 1rem;
 }
 
@@ -114,7 +114,7 @@
     left: 4.3rem;
     background: yellow;
     padding: 0;
-    min-width: 10rem;
+    min-width: 20rem;
     display: none;
 }
 
@@ -159,7 +159,7 @@
 
 .featured {
     width: auto;
-    height: auto;
+    height: 30rem;
     background-color: lightgray;
     margin: 0 auto;
 }
