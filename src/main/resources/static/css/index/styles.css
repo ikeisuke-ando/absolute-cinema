@@ -1,0 +1,218 @@
+.main {
+    width: 100%;
+    overflow: hidden;
+}
+
+.background {
+    /*background-image: url('images/posters/arcane.png');*/
+}
+
+.absolute-cinema {
+    font-size: 4rem;
+    font-weight: 800;
+    color: yellow;
+    text-shadow:
+            -1px -1px 0 black,
+            1px -1px 0 black,
+            -1px 1px 0 black,
+            1px 1px 0 black;
+    display: flex;
+    justify-content: center;
+}
+
+.sub-absolute-cinema {
+    color: white;
+    text-shadow:
+            -1px -1px 0 black,
+            1px -1px 0 black,
+            -1px 1px 0 black,
+            1px 1px 0 black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.wrapper {
+    display: flex;
+}
+
+.wrapper a {
+    text-decoration: none;
+}
+
+.wrapper li {
+    list-style: none;
+}
+
+.sidebar {
+    height: 100vh;
+    width: 10rem;
+    min-width: 10rem;
+    z-index: 1000;
+    background: yellow;
+    display: flex;
+    flex-direction: column;
+    transition: 0.25s ease-in-out;
+}
+
+.sidebar .expand {
+    width: 16rem;
+    min-width: 16rem;
+}
+
+.sidebar .toggle-btn {
+    background: transparent;
+    padding: 1rem 1rem;
+    border: 0;
+    cursor: pointer;
+}
+
+.toggle-btn i {
+    font-size: 8rem;
+    color: black;
+}
+
+.sidebar-nav {
+    height: 10rem;
+    padding: 1rem 0;
+    flex: 1 1 auto;
+}
+
+.sidebar-item {
+    position: relative;
+}
+
+.sidebar-nav > .sidebar-item {
+    margin-bottom: 1rem;
+}
+
+.sidebar .sidebar-link {
+    display: block;
+    padding: 1rem 3rem;
+    color: black;
+    font-size: 1.5rem;
+    border-left: 0.2rem solid transparent;
+}
+
+.sidebar-link:hover {
+    background-color: rgba(255, 255, 255, 0.075);
+    border-left: 0.2rem solid #4070f4;
+}
+
+.sidebar-link i {
+    font-size: 3rem;
+    margin-right: 1rem;
+}
+
+.sidebar:not(.expand) a.sidebar-link span {
+    display: none;
+}
+
+.sidebar:not(.expand) .sidebar-item .sidebar-dropdown {
+    position: absolute;
+    top: 0;
+    left: 4.3rem;
+    background: yellow;
+    padding: 0;
+    min-width: 20rem;
+    display: none;
+}
+
+.sidebar:not(.expand) .sidebar-item .drop-two {
+    top: 100%;
+    left: 0;
+}
+
+.sidebar:not(.expand) .sidebar-item:hover > .sidebar-dropdown {
+    display: block;
+    max-height: 16rem;
+    width: 100%;
+    opacity: 1;
+}
+
+.sidebar.expand .sidebar-link[data-bs-toggle="collapse"]::after {
+    position: absolute;
+    content: "";
+    display: inline-block;
+    border: solid;
+    border-width: 0 0.05rem 0.05rem 0;
+    padding: 0.125rem;
+    right: 1.5rem;
+    top: 1.4rem;
+    transform: rotate(-135deg);
+    transition: all 0.2s ease-out;
+}
+
+.sidebar.expand .sidebar-link[data-bs-toggle="collapse"].collapsed::after {
+    transform: rotate(45deg);
+    transition: all 0.2s ease-out;
+}
+
+.sidebar .sidebar-footer {
+    margin-bottom: 2rem;
+}
+
+.blank{
+    height: 3.2rem;
+    background: transparent;
+}
+
+.featured {
+    width: auto;
+    height: 30rem;
+    background-color: lightgray;
+    margin: 0 auto;
+}
+
+.featured p {
+    font-size: 1.9rem;
+    color: yellow;
+    text-shadow:
+            -1px -1px 0 black,
+            1px -1px 0 black,
+            -1px 1px 0 black,
+            1px 1px 0 black;
+}
+
+/*modo noturno*/
+body {
+    background-color: var(--background-color);
+    color: var(--text-color);
+}
+
+.container {
+    max-width: 50rem;
+    margin: 0 auto;
+    padding: 1.25rem;
+}
+
+.button {
+    padding: 0.625rem 1.25rem;
+    background-color: var(--button-color);
+    color: white;
+    border: none;
+    border-radius: 0.3125rem;
+    cursor: pointer;
+}
+
+:root {
+    --background-color-light: #ffffff;
+    --text-color-light: #000000;
+    --button-color-light: #007bff;
+
+    --background-color-dark: #222222;
+    --text-color-dark: #ffffff;
+    --button-color-dark: #6c757d;
+}
+
+body {
+    --background-color: var(--background-color-light);
+    --text-color: var(--text-color-light);
+    --button-color: var(--button-color-light);
+}
+
+body.dark-mode {
+    --background-color: var(--background-color-dark);
+    --text-color: var(--text-color-dark);
+    --button-color: var(--button-color-dark);
+}
