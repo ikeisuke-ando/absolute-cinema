@@ -8,6 +8,10 @@ const movies = {
 
 const series = {
     "Movie 1": "images/posters/series/arcane.png",
+    "Movie 2": "images/posters/series/ripley.jpg",
+    "Movie 3": "images/posters/series/invencivel.jpg",
+    "Movie 4": "images/posters/series/oproblemados3corpos.jpg",
+    "Movie 5": "images/posters/series/gameofthrones.jpg",
 };
 
 function addMoviesToHTML() {
@@ -20,7 +24,7 @@ function addMoviesToHTML() {
 
         movieElement.src = movieSrc;
         movieElement.alt = movieName;
-        movieElement.height = 400;
+        movieElement.height = 300;
         movieElement.style.marginRight = "2rem"
 
         movieListContainer.appendChild(movieElement);
@@ -37,7 +41,7 @@ function addSeriesToHTML() {
 
         serieElement.src = serieSrc;
         serieElement.alt = serieName;
-        serieElement.height = 400;
+        serieElement.height = 300;
         serieElement.style.marginRight = "2rem"
 
         serieListContainer.appendChild(serieElement);
