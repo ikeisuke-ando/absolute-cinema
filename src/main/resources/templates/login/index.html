@@ -117,10 +117,10 @@
         <section class="container my-3">
             <div class="d-flex flex-column align-items-stretch register_background bordas justify-content-between">
                 <div class ="d-flex flex-column align-items-center">
-                    <h3 class="titulo_form">Login</h3>
-                    <h3 class="sub_titulo"> Ainda nao possui uma conta?Criar conta</h3>
+                    <h3 class="title-form">Login</h3>
+                    <h3 class="sub-title-form"> Ainda nao possui uma conta?Criar conta</h3>
                 </div>
-                <form action="/signIn" method="POST" class="row g-3" id="Formulario">
+                <form action="/signIn" method="POST" class="row g-3" id="login-form">
                     <input type="text" id="login" name="login" class="form-control bordas" placeholder="Nome de Usuario">
                     <input type="password" id="password" name="password" class="form-control bordas" placeholder="Digite sua senha">
                             <div th:if="${loginError!=null}" th:text="${loginError}" class="alert alert-danger" role="alert"></div>
@@ -130,7 +130,7 @@
                                 <label class="custom-control-label" for="rememberMe"></label>
                             </div>
                 </form>
-                <button class="btn btn-warning me-md-2 bordas" form="Formulario">Fazer login</button>
+                <button class="btn btn-warning me-md-2 bordas" form="login-form">Fazer login</button>
             </div>
         </section>
     </div>

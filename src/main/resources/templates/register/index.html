@@ -38,7 +38,7 @@
         <ul class="sidebar-nav">
 
             <li class="sidebar-item">
-                <a href="/static" class="sidebar-link">
+                <a href="/" class="sidebar-link">
                     <i class="fas fa-home"></i>
                     <span>Home</span>
                 </a>
@@ -118,19 +118,19 @@
 
             <div class="d-flex flex-column align-items-stretch register_background bordas justify-content-between">
                 <div class ="d-flex flex-column align-items-center">
-                    <h3 class="titulo_form">Criar Conta</h3>
-                    <h3 class="sub_titulo"> ja tem uma conta? Fazer login</h3>
+                    <h3 class="title-form">Criar Conta</h3>
+                    <h3 class="sub-title-form"> ja tem uma conta? Fazer login</h3>
                 </div>
-                <form action="/signIn" method="POST" class="row g-3" id="Formulario">
+                <form action="/signIn" method="POST" class="row g-3" id="register-form">
                     <input type="text" id="login" name="login" class="form-control bordas" placeholder="Nome de Usuario">
                     <input type="text" id="Email" name="Email" class="form-control bordas" placeholder="Email">
                     <input type="password" id="password" name="password" class="form-control bordas" placeholder="Digite sua senha">
-                    <input type="password" id="conf_password" name="conf_password" class="form-control bordas" placeholder="Confirme sua senha">
+                    <input type="password" id="confirm-password" name="confirm-password" class="form-control bordas" placeholder="Confirme sua senha">
                   <!-- to do-->
                   <!--  <div th:if="${loginError!=null}" th:text="${loginError}" class="alert alert-danger" role="alert"></div>--> 
                 </form>
 
-                <button class="btn btn-warning bordas me-md-2" form="Formulario">Criar conta</button>
+                <button class="btn btn-warning bordas me-md-2" form="register-form">Criar conta</button>
             </div>
 
         </section>
