@@ -3,10 +3,6 @@
     overflow: hidden;
 }
 
-.background {
-    /*background-image: url('images/posters/arcane.png');*/
-}
-
 .absolute-cinema {
     font-size: 4rem;
     font-weight: 800;
@@ -53,6 +49,7 @@
     display: flex;
     flex-direction: column;
     transition: 0.25s ease-in-out;
+    position: fixed;
 }
 
 .sidebar .expand {
@@ -111,9 +108,9 @@
 .sidebar:not(.expand) .sidebar-item .sidebar-dropdown {
     position: absolute;
     top: 0;
-    left: 4.3rem;
+    left: 10rem;
     background: yellow;
-    padding: 0;
+    padding-left: 0;
     min-width: 20rem;
     display: none;
 }
@@ -158,10 +155,15 @@
 }
 
 .featured {
-    width: auto;
+    width: 110%;
     height: 30rem;
     background-color: lightgray;
     margin: 0 auto;
+    margin-bottom: 50px;
+    padding-top: 10px;
+    padding-bottom: 400px;
+    padding-left: 12rem;
+    border: 10px solid black;
 }
 
 .featured p {
@@ -215,4 +217,34 @@ body.dark-mode {
     --background-color: var(--background-color-dark);
     --text-color: var(--text-color-dark);
     --button-color: var(--button-color-dark);
+}
+
+.lista-capas{
+    padding: 20px;
+}
+
+h1{
+    -webkit-text-stroke-width: 3px;
+    -webkit-text-stroke-color: black;
+}
+
+h2 {
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: black;
+}
+
+.categoria {
+    font-weight: 800;
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: black;
+}
+
+#movies-list img{
+    border: 5px solid black;
+    border-radius: 10px;
+}
+
+#series-list img{
+    border: 5px solid black;
+    border-radius: 10px;
 }
