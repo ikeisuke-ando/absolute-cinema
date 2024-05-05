@@ -116,18 +116,23 @@
         <!-- Formulario de registro -->
         <section class="container my-3">
             <div class="featured">
+                <h3 class="Criar-conta">Criar Conta</h3>
                 <form action="/signIn" method="POST" class="row g-3">
                     <div class="col-md-6 offset-md-3">
-                        <label for="login" class="form-label">Login</label>
                         <input type="text" id="login" name="login" class="form-control" placeholder="Nome de Usuario">
+                    </div>
+                    <div class="col-md-6 offset-md-3">
+                        <input type="text" id="Email" name="Email" class="form-control" placeholder="Email">
+
                     </div>
 
                     <div class="col-md-6 offset-md-3">
-                        <label for="password" class="form-label">Senha</label>
                         <input type="password" id="password" name="password" class="form-control" placeholder="Digite sua senha">
                     </div>
+                    <div class="col-md-6 offset-md-3">
+                        <input type="password" id="conf_password" name="conf_password" class="form-control" placeholder="Confirme sua senha">
+                    </div>
 
-                    <div>
                         <div class="col-md-6 offset-md-3">
                             <div th:if="${loginError!=null}" th:text="${loginError}" class="alert alert-danger" role="alert"></div>
 
@@ -135,9 +140,8 @@
                                 <input type="checkbox" class="custom-control-input" id="rememberMe" name="rememberMe"> Remember Me
                                 <label class="custom-control-label" for="rememberMe"></label>
                             </div>
-                            <button class="btn btn-primary offset-md-5 me-md-2 ">Fazer login</button>
+                            <button class="btn btn-primary offset-md-1 me-md-2 ">Criar conta</button>
                         </div>
-                    </div>
                 </form>
             </div>
         </section>
