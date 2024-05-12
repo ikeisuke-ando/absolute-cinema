@@ -1,3 +1,5 @@
+var loggedIn = false;
+
 document.addEventListener('DOMContentLoaded', function() {
     document.getElementById('register-form').addEventListener('submit', function(event) {
         var fields = [
@@ -10,6 +12,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
         var formIsValid = true;
         var errorElement = document.getElementById('form-error');
+
         fields.forEach(function(field) {
             var value = document.getElementById(field).value.trim();
 
@@ -28,9 +31,13 @@ document.addEventListener('DOMContentLoaded', function() {
             var generalErrorElement = document.getElementById('form-error');
             generalErrorElement.classList.remove('d-none');
         }
+
+        if (formIsValid) {
+            loggedIn = true;
+        }
+
     });
 });
-
 
 function validateEmail(email) {
     var regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
