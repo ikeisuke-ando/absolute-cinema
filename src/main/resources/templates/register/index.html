@@ -18,8 +18,10 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
 
     <link rel="stylesheet" href="/css/index/styles.css">
+    <link rel="stylesheet" href="/css/register/styles.css">
 
     <script src="/js/index/script.js"></script>
+    <script src="/js/register/script.js"></script>
 
     <title>Absolute Cinema</title>
     <link rel="icon" href="/images/favicon.ico"/>
@@ -121,15 +123,16 @@
                     <h3 class="title-form">Criar Conta</h3>
                     <h3 class="sub-title-form"> ja tem uma conta? Fazer login</h3>
                 </div>
-                <form action="/signIn" method="POST" class="row g-3" id="register-form">
+                <form action="/signUp" method="POST" class="row g-3" id="register-form">
+                    <input type="text" id="name" name="name" class="form-control bordas" placeholder="Apelido no Site">
                     <input type="text" id="login" name="login" class="form-control bordas" placeholder="Nome de Usuario">
-                    <input type="text" id="Email" name="Email" class="form-control bordas" placeholder="Email">
+                    <input type="text" id="email" name="email" class="form-control bordas" placeholder="Digite seu Email">
                     <input type="password" id="password" name="password" class="form-control bordas" placeholder="Digite sua senha">
                     <input type="password" id="confirm-password" name="confirm-password" class="form-control bordas" placeholder="Confirme sua senha">
-                  <!-- to do-->
-                  <!--  <div th:if="${loginError!=null}" th:text="${loginError}" class="alert alert-danger" role="alert"></div>--> 
+                    <div id="form-error" class="alert alert-danger d-none" role="alert"> Por favor preencha todos os campos.</div>
+                    <div id="email-error" class="alert alert-danger d-none" role="alert">Por favor, digitar um email valido!</div>
+                    <div id="password-error" class="alert alert-danger d-none" role="alert">As senhas não coincidem. Por favor, confirme sua senha corretamente.</div>
                 </form>
-
                 <button class="btn btn-warning bordas me-md-2" form="register-form">Criar conta</button>
             </div>
 
