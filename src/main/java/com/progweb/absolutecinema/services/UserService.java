@@ -3,7 +3,6 @@ package com.progweb.absolutecinema.services;
 import com.progweb.absolutecinema.model.User;
 import com.progweb.absolutecinema.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 

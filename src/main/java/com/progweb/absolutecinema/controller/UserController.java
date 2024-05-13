@@ -1,7 +1,6 @@
 package com.progweb.absolutecinema.controller;
 
 import com.progweb.absolutecinema.model.User;
-import com.progweb.absolutecinema.repositories.UserRepository;
 import com.progweb.absolutecinema.services.UserService;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
