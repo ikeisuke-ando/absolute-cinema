@@ -27,15 +27,10 @@ public class AuthController {
     @PostMapping("/signIn")
     public String signIn(Model model, User user, String rememberMe) {
         try {
-            User usrByEmail = this.loginRepository.findByEmail(user.getEmail(), user.getPassword());
-            User usrByUsername = this.loginRepository.findByUsername(user.getLogin(), user.getPassword());
-
-            User usr = usrByEmail != null ? usrByEmail : usrByUsername;
+            User usr = this.loginRepository.findUserByLoginPassword(user.getLogin(), user.getPassword());
 
             if (usr != null) {
-                Model usModel;
-                boolean loggedIn = true;
-                model.addAttribute("loggedIn", loggedIn);
+                model.addAttribute("login","dummy text");
                 return "redirect:/";
             }
             throw new Exception("Usuário ou senha inválido.");
@@ -45,7 +40,6 @@ public class AuthController {
             return "login/index";
         }
     }
-
 
     @GetMapping("/register")
     public String register(){
