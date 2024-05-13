@@ -281,3 +281,42 @@ h2 {
     border: 5px solid black;
     border-radius: 10px;
 }
+
+.capa-review {
+    border: 5px solid black;
+    border-radius: 10px;
+    margin-right: 100px;
+}
+
+.imagens-review {
+    display: flex;
+}
+
+.estatisticas {
+    display: flex;
+    flex-direction: column;
+    margin-left: 100px;
+}
+
+.estatisticas-box {
+    width: 200px;
+    height: 120px;
+    border: 5px solid black;
+    border-radius: 10px;
+    background-color: grey;
+    margin: 20px;
+    text-align: center;
+}
+
+.botao {
+    color: black;
+    font-weight: 800;
+    background-color: yellow;
+    padding: 10px 20px;
+    border: 5px solid black;
+    border-radius: 10px;
+    font-size: 16px;
+    cursor: pointer;
+    margin-top: 50px;
+    margin-bottom: 50px;
+  }
