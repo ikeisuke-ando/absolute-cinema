@@ -162,8 +162,11 @@
     margin-bottom: 50px;
     padding-top: 10px;
     padding-bottom: 400px;
-    padding-left: 12rem;
     border: 10px solid black;
+}
+
+.caixa-capas {
+    padding-left: 12rem;
 }
 
 .featured p {
@@ -182,6 +185,7 @@ body {
     color: var(--text-color);
 }
 
+
 .container {
     max-width: 50rem;
     margin: 0 auto;
@@ -198,11 +202,9 @@ body {
 }
 
 :root {
-    --background-color-light: #ffffff;
     --text-color-light: #000000;
     --button-color-light: #007bff;
 
-    --background-color-dark: #222222;
     --text-color-dark: #ffffff;
     --button-color-dark: #6c757d;
 }
@@ -231,6 +233,12 @@ h1{
 h2 {
     -webkit-text-stroke-width: 1px;
     -webkit-text-stroke-color: black;
+    color: yellow;
+    text-shadow:
+            -1px -1px 0 black,
+            1px -1px 0 black,
+            -1px 1px 0 black,
+            1px 1px 0 black;
 }
 
 .categoria {

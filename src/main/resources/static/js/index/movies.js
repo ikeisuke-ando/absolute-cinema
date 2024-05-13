@@ -39,12 +39,17 @@ function addSeriesToHTML() {
         const [serieName, serieSrc] = entry;
         const serieElement = document.createElement("img");
 
+        var link = document.createElement('a');
+        link.href = '/review';
+
         serieElement.src = serieSrc;
         serieElement.alt = serieName;
         serieElement.height = 300;
-        serieElement.style.marginRight = "2rem"
+        serieElement.style.marginRight = "2rem";
 
-        serieListContainer.appendChild(serieElement);
+        link.appendChild(serieElement);
+
+        serieListContainer.appendChild(link);
     });
 }
 
