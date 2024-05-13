@@ -116,31 +116,24 @@
 
         <!-- Formulario de registro -->
         <section class="container my-3">
-            <div class="featured">
-                <form action="/signIn" method="POST" class="row g-3">
-                    <div class="col-md-6 offset-md-3">
-                        <label for="login" class="form-label">Login</label>
-                        <input type="text" id="login" name="login" class="form-control" placeholder="Nome de Usuario">
-                    </div>
 
-                    <div class="col-md-6 offset-md-3">
-                        <label for="password" class="form-label">Senha</label>
-                        <input type="password" id="password" name="password" class="form-control" placeholder="Digite sua senha">
-                    </div>
-
-                    <div>
-                        <div class="col-md-6 offset-md-3">
-                            <div th:if="${loginError!=null}" th:text="${loginError}" class="alert alert-danger" role="alert"></div>
-
-                            <div class="custom-control custom-checkbox-small">
-                                <input type="checkbox" class="custom-control-input" id="rememberMe" name="rememberMe"> Remember Me
-                                <label class="custom-control-label" for="rememberMe"></label>
-                            </div>
-                            <button class="btn btn-primary offset-md-5 me-md-2 ">Fazer login</button>
-                        </div>
-                    </div>
+            <div class="d-flex flex-column align-items-stretch register_background bordas justify-content-between">
+                <div class ="d-flex flex-column align-items-center">
+                    <h3 class="title-form">Criar Conta</h3>
+                    <h3 class="sub-title-form"> ja tem uma conta? Fazer login</h3>
+                </div>
+                <form action="/signIn" method="POST" class="row g-3" id="register-form">
+                    <input type="text" id="login" name="login" class="form-control bordas" placeholder="Nome de Usuario">
+                    <input type="text" id="Email" name="Email" class="form-control bordas" placeholder="Email">
+                    <input type="password" id="password" name="password" class="form-control bordas" placeholder="Digite sua senha">
+                    <input type="password" id="confirm-password" name="confirm-password" class="form-control bordas" placeholder="Confirme sua senha">
+                  <!-- to do-->
+                  <!--  <div th:if="${loginError!=null}" th:text="${loginError}" class="alert alert-danger" role="alert"></div>--> 
                 </form>
+
+                <button class="btn btn-warning bordas me-md-2" form="register-form">Criar conta</button>
             </div>
+
         </section>
     </div>
 
