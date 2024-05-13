@@ -22,16 +22,17 @@
     <script src="/js/index/script.js"></script>
 
     <title>Absolute Cinema</title>
-    <link rel="icon" href="/images/favicon.ico"/>
+    <link rel="icon" href="/images/logo.ico"/>
 </head>
-<body>
+<body style="background-image: url('images/posteresfilmes.png');">
 
 <!--side bar-->
 <div class="wrapper">
     <aside class="sidebar">
         <div class="d-flex">
             <button class="toggle-btn" type="button">
-                <i class="fa-solid fa-clapperboard"></i>
+                <!--<i class="fa-solid fa-clapperboard"></i>-->
+                <img src="/images/logo.png">
             </button>
         </div>
 
@@ -111,34 +112,26 @@
     <!-- Pagina -->
     <div class="main p-1 background">
         <h1 class="absolute-cinema h1">ABSOLUTE CINEMA</h1>
-        <h2 class="sub-absolute-cinema">As melhores análises são de gente como a gente</h2>
+        <h2 class="sub-absolute-cinema">As melhores análises vêm de gente como a gente</h2>
 
         <!-- Formulario de registro -->
         <section class="container my-3">
-            <div class="featured">
-                <form action="/signIn" method="POST" class="row g-3">
-                    <div class="col-md-6 offset-md-3">
-                        <label for="login" class="form-label">Login</label>
-                        <input type="text" id="login" name="login" class="form-control" placeholder="Nome de Usuario">
-                    </div>
-
-                    <div class="col-md-6 offset-md-3">
-                        <label for="password" class="form-label">Senha</label>
-                        <input type="password" id="password" name="password" class="form-control" placeholder="Digite sua senha">
-                    </div>
-
-                    <div>
-                        <div class="col-md-6 offset-md-3">
+            <div class="d-flex flex-column align-items-stretch register_background bordas justify-content-between">
+                <div class ="d-flex flex-column align-items-center">
+                    <h3 class="title-form">Login</h3>
+                    <h3 class="sub-title-form"> Ainda nao possui uma conta?Criar conta</h3>
+                </div>
+                <form action="/signIn" method="POST" class="row g-3" id="login-form">
+                    <input type="text" id="login" name="login" class="form-control bordas" placeholder="Nome de Usuario">
+                    <input type="password" id="password" name="password" class="form-control bordas" placeholder="Digite sua senha">
                             <div th:if="${loginError!=null}" th:text="${loginError}" class="alert alert-danger" role="alert"></div>
 
                             <div class="custom-control custom-checkbox-small">
                                 <input type="checkbox" class="custom-control-input" id="rememberMe" name="rememberMe"> Remember Me
                                 <label class="custom-control-label" for="rememberMe"></label>
                             </div>
-                            <button class="btn btn-primary offset-md-5 me-md-2 ">Fazer login</button>
-                        </div>
-                    </div>
                 </form>
+                <button class="btn btn-warning me-md-2 bordas" form="login-form">Fazer login</button>
             </div>
         </section>
     </div>
