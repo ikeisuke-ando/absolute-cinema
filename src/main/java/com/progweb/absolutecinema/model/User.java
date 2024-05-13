@@ -1,9 +1,7 @@
 package com.progweb.absolutecinema.model;
 
 import jakarta.persistence.*;
-import jakarta.validation.constraints.NotEmpty;
-import jakarta.validation.constraints.NotNull;
-import jakarta.validation.constraints.Size;
+import jakarta.validation.constraints.*;
 
 import java.util.Objects;
 
@@ -25,12 +23,12 @@ public class User {
     @NotEmpty(groups = CreateUser.class)
     private String name;
 
-    @Column(name="email", length = 255, nullable = false,unique = true)
+    @Column(name="email", length = 255, nullable = false, unique = true)
     @NotNull(groups  = {CreateUser.class, UpdateUser.class})
     @NotEmpty(groups = {CreateUser.class, UpdateUser.class})
     private String email;
 
-    @Column(name="login", length = 255, nullable = false,unique = true)
+    @Column(name="login", length = 255, nullable = false, unique = true)
     @NotNull(groups  = CreateUser.class)
     @NotEmpty(groups = CreateUser.class)
     private String login;
