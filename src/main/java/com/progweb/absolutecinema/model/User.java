@@ -2,105 +2,72 @@ package com.progweb.absolutecinema.model;
 
 import jakarta.persistence.*;
 import jakarta.validation.constraints.*;
+import lombok.Data;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
 @Entity
-@Table(name="user")
+@Table(name = "user")
+@Data
 public class User {
-    public interface CreateUser{}
-    public interface UpdateUser{}
-
-    public static final String TABLE_NAME = "user";
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name="id", unique = true)
+    @Column(name = "id", unique = true)
     private Long id;
 
-    @Column(name="name", length = 255, nullable = false)
-    @NotNull(groups  = CreateUser.class)
-    @NotEmpty(groups = CreateUser.class)
+    @Column(name = "name", length = 100, nullable = false)
+    @NotNull(message = "O nome não pode ser nulo.")
+    @Size(max = 100, message = "O nome deve ter no máximo 100 caracteres.")
     private String name;
 
-    @Column(name="email", length = 255, nullable = false, unique = true)
-    @NotNull(groups  = {CreateUser.class, UpdateUser.class})
-    @NotEmpty(groups = {CreateUser.class, UpdateUser.class})
+    @Column(name = "user_name", length = 50, nullable = false)
+    @NotNull(message = "O nome de usuário não pode ser nulo.")
+    @Size(max = 50, message = "O nome de usuário deve ter no máximo 50 caracteres.")
+    private String username;
+
+    @Column(name = "email", nullable = false, unique = true)
+    @NotNull(message = "O email não pode ser nulo.")
+    @Email(message = "O email deve ser válido.")
     private String email;
 
-    @Column(name="login", length = 255, nullable = false, unique = true)
-    @NotNull(groups  = CreateUser.class)
-    @NotEmpty(groups = CreateUser.class)
+    @Column(name = "login", length = 50, nullable = false, unique = true)
+    @NotNull(message = "O login não pode ser nulo.")
+    @Size(max = 50, message = "O login deve ter no máximo 50 caracteres.")
     private String login;
 
-    @Column(name="password", length = 255, nullable = false)
-    @NotNull(groups = {CreateUser.class, UpdateUser.class})
-    @NotEmpty(groups = {CreateUser.class, UpdateUser.class})
-    @Size(groups = {CreateUser.class, UpdateUser.class}, min = 8)
+    @Column(name = "password", nullable = false)
+    @NotNull(message = "A senha não pode ser nula.")
+    @Size(min = 8, message = "A senha deve ter pelo menos 8 caracteres.")
     private String password;
 
-//    @Column(name = "reviews")
-//    @Null(groups  = {CreateUser.class, UpdateUser.class})
-//    private  List<Reviews>  reviews;
-
-    public User(){
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Review> reviews = new ArrayList<>();
+    public User() {
     }
 
-    public User(Long id, String name, String email, String login, String password) {
+    public User(Long id, String name, String username, String email, String login, String password, List<Review> reviews) {
         this.id = id;
         this.name = name;
+        this.username = username;
         this.email = email;
         this.login = login;
         this.password = password;
+        this.reviews = reviews;
     }
 
-    public Long getId() {
-        return id;
+    public void addReview(Review review) {
+        reviews.add(review);
+        review.setUser(this);
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    public void removeReview(Review review) {
+        reviews.remove(review);
+        review.setUser(null);
     }
 
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public String getLogin() {
-        return login;
-    }
-
-    public void setLogin(String login) {
-        this.login = login;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
-//    public List<Reviews> getReviews() {
-//        return reviews;
-//    }
-//
-//    public void setReviews(List<Reviews> reviews) {
-//        this.reviews = reviews;
-//    }
 
     @Override
     public boolean equals(Object o) {
@@ -111,9 +78,6 @@ public class User {
 
     @Override
     public int hashCode() {
-        final int prime = 31;
-        int result = 1;
-        return result = prime * result + ((this.id==null) ? 0 : this.id.hashCode());
-
+        return Objects.hash(getId());
     }
 }

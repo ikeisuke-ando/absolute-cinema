@@ -1,17 +1,22 @@
 package com.progweb.absolutecinema.model;
 
 import jakarta.persistence.*;
+import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedDate;
+import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import java.time.LocalDateTime;
 import java.util.Date;
+import java.util.Objects;
 
 
 @Entity
 @Table(name="review")
+@Data
+@EntityListeners(AuditingEntityListener.class)
 public class Review {
 
     public static final String TABLE_NAME = "review";
@@ -57,6 +62,13 @@ public class Review {
     @Column(name = "updated_at")
     private LocalDateTime updatedAt;
 
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "user_id", nullable = false)
+    @Setter
+    @Getter
+    private User user;
+
+
     public Review() {
     }
 
@@ -66,5 +78,17 @@ public class Review {
         this.rating = rating;
         this.upVote = 0;
         this.downVote = 0;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Review review)) return false;
+        return Objects.equals(id, review.id);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id);
     }
 }
