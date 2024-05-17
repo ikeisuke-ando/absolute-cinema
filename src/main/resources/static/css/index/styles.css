@@ -250,12 +250,12 @@ body.dark-mode {
     padding: 20px;
 }
 
-h1{
+.absolute-cinema h1{
     -webkit-text-stroke-width: 3px;
     -webkit-text-stroke-color: black;
 }
 
-h2 {
+.sub-absolute-cinema h2 {
     -webkit-text-stroke-width: 1px;
     -webkit-text-stroke-color: black;
     color: yellow;
