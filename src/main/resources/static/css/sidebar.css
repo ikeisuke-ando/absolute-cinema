@@ -1,0 +1,160 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900&display=swap');
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+.container-sidebar{
+    width: 100%;
+    color: black;
+}
+
+.container-sidebar .sidebar-navigator{
+    width: 115px;
+    height: 100vh;
+    overflow: hidden;
+    position: fixed;
+    padding: 32px 16px;
+    background-color: yellow;
+    transition: width 0.6s;
+
+}
+
+label .close-btn{
+    display: none;
+}
+
+.sidebar-navigator .search-bar{
+    margin-top: 72px;
+    position: relative;
+}
+
+.sidebar-navigator .search-bar i{
+    position: absolute;
+    color: #000;
+    font-size: 24px;
+    left: 38px;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.sidebar-navigator .search-bar input{
+    width: 50%;
+    padding: 11px;
+    padding-left: 40px;
+    border-radius: 5px;
+    border: none;
+    outline: none;
+    margin-left: 15px;
+}
+
+.sidebar-navigator .menu-text{
+    margin-top: 24px;
+}
+
+.sidebar-navigator .menu-text p{
+    font-size: 17px;
+    font-weight: 500;
+    text-transform: uppercase;
+    padding-left: 10px;
+    text-align: center;
+}
+
+.sidebar-navigator .icon-items ul{
+    list-style: none;
+    margin-top: 32px;
+    padding: 0 10px;
+}
+
+.sidebar-navigator .icon-items ul li{
+    cursor: pointer;
+    margin: 4px;
+    padding: 12px 0;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    transition: 0.5s ease;
+    position: relative;
+}
+
+.sidebar-navigator .icon-items ul li i{
+    font-size: 26px;
+    padding: 0 12px;
+}
+
+.sidebar-navigator .icon-items ul li a{
+    text-decoration: none;
+    color: black;
+    font-size: 17px;
+    padding-left: 18px;
+    /*opacity: 0;*/
+    /*pointer-events: none;*/
+    transition: 0.3s ease;
+}
+
+#click-sidebar{
+    display: none;
+}
+
+
+.logo-button{
+    background: transparent;
+    padding: 0 1px;
+    border: transparent;
+    transition: 0.3s ease;
+}
+
+.container-sidebar label{
+    margin-top: 140px;
+    position: absolute;
+    padding-left: 20px;
+    top: 1.5%;
+    font-size: 40px;
+    cursor: pointer;
+}
+
+
+#click-sidebar:checked ~ .sidebar-navigator{
+    width: 240px;
+}
+
+#click-sidebar:checked ~ .sidebar-navigator .icon-items ul li a{
+    opacity: 1;
+    pointer-events: auto;
+}
+
+#click-sidebar:checked ~ .sidebar-navigator .search-bar input{
+    width: 100%;
+    margin-left: 0;
+}
+
+#click-sidebar:checked ~ .sidebar-navigator .search-bar i{
+    left: 20px;
+}
+
+#click-sidebar:checked ~ label{
+    left: 1%;
+    margin-left: 40px;
+
+}
+
+#click-sidebar:checked ~ label .close-btn{
+    display: block;
+}
+
+#click-sidebar:checked ~ label .menu-btn{
+    display: none;
+}
+
+#click-sidebar:checked + .sidebar-navigator label {
+    left: 1%;
+    margin-left: 75px;
+}
+
+#click-sidebar:checked + .sidebar-navigator .logo-button {
+    margin-left: 40px;
+}
+

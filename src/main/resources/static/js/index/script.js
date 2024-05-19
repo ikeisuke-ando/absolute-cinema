@@ -2,7 +2,7 @@
 document.addEventListener('DOMContentLoaded', function() {
     const toggleButton = document.getElementById('toggle-mode-link');
 
-    toggleButton.addEventListener('click', function(event) {
+    toggleButton.addEventListener('click-sidebar', function(event) {
         event.preventDefault(); // Evitar o comportamento padrão do link
 
         const body = document.body;

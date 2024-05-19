@@ -18,6 +18,10 @@ public class AuthController {
     private LoginRepository loginRepository;
     @Autowired
     private UserService userService;
+    @GetMapping("/check")
+    public String checkLogin(){
+        return "login/check";
+    }
 
     @GetMapping("/login")
     public String login() {
