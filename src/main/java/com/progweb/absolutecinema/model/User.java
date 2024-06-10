@@ -3,6 +3,8 @@ package com.progweb.absolutecinema.model;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.*;
 import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -45,6 +47,11 @@ public class User {
 
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Review> reviews = new ArrayList<>();
+
+    @Getter
+    @Setter
+    @Column(name="admin", nullable = false)
+    private Boolean admin = false;
     public User() {
     }
 
