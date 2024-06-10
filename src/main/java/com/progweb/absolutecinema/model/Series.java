@@ -19,13 +19,24 @@ public class Series {
     @Column(name="id", unique = true)
     private Long id;
 
+
     @Setter
+    @Getter
     @Column(name="name", length = 255, nullable = false)
     private String name;
 
+    @Setter
+    @Getter
+    @Column(name="series_genre", nullable = false)
+    private String seriesGenre;
+
+    @Setter
+    @Getter
     @Column(name="poster")
     private String poster;
 
+    @Setter
+    @Getter
     @Column(name="year", nullable = false)
     private int year;
 
@@ -34,6 +45,8 @@ public class Series {
     @Column(name="rating", nullable = true)
     private double rating;
 
+    @Setter
+    @Getter
     @Column(name="episodes", nullable = false)
     private int episodes;
 
@@ -51,10 +64,9 @@ public class Series {
     public Series(){
     }
 
-    public Series(Long id, String name, double rating, List<Review> reviews) {
+    public Series(Long id, String name, double rating) {
         this.id = id;
         this.name = name;
         this.rating = rating;
-        this.reviews = reviews;
     }
 }

@@ -25,6 +25,11 @@ public class Movie {
 
     @Setter
     @Getter
+    @Column(name="film_genre", nullable = false)
+    private String filmGenre;
+
+    @Setter
+    @Getter
     @Column(name="poster")
     private String poster;
 
@@ -49,5 +54,13 @@ public class Movie {
     @Column(name="gallery")
     private String gallery;
 
+    public Movie() {
+    }
 
+    public Movie(Long id, String name, int year) {
+        this.id = id;
+        this.name = name;
+        this.year = year;
+        this.rating = 0.0;
+    }
 }

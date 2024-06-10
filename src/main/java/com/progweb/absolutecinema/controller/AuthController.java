@@ -30,8 +30,9 @@ public class AuthController {
             User usr = this.loginRepository.findUserByLoginPassword(user.getLogin(), user.getPassword());
 
             if (usr != null) {
-                model.addAttribute("login","dummy text");
-                return "redirect:/";
+                model.addAttribute("isLoggedIn", true);
+                model.addAttribute("login", usr.getName() );
+                return "index";
             }
             throw new Exception("Usuário ou senha inválido.");
 

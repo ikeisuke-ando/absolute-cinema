@@ -64,11 +64,29 @@
                         <span>Conta</span>
                     </a>
                     <ul class="company sidebar-dropdown list-unstyled collapse" data-bs-parent=".sidebar">
-                        <li class="sidebar-item">
+                        <li class="sidebar-item" th:if="${!isLoggedIn}">
                             <a href="/register" class="sidebar-link">Registrar</a>
                         </li>
-                        <li class="sidebar-item">
+                        <li class="sidebar-item" th:if="${!isLoggedIn}">
                             <a href="/login" class="sidebar-link">Entrar</a>
+                        </li>
+                        <li class="sidebar-item">
+                            <a href="/profile" class="sidebar-link" th:text="${login}">Entrar</a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="sidebar-item">
+                    <a href="#" class="sidebar-link collapsed has-dropdown" data-bs-toggle="collapse"
+                       data-bs-target=".company" aria-expanded="false" aria-controls="company">
+                        <i class="fas fa-bars"></i>
+                        <span>ADMIN</span>
+                    </a>
+                    <ul class="company sidebar-dropdown list-unstyled collapse" data-bs-parent=".sidebar">
+                        <li class="sidebar-item">
+                            <a href="/add" class="sidebar-link">Adicionar filme ao catálogo</a>
+                        </li>
+                        <li class="sidebar-item">
+                            <a href="#" class="sidebar-link">Adicionar série ao catálogo</a>
                         </li>
                     </ul>
                 </li>
@@ -81,7 +99,7 @@
                 </a>
             </div>
 
-            <div class="sidebar-footer">
+            <div class="sidebar-footer logout" th:if="${isLoggedIn}">
                 <a href="#" class="sidebar-link">
                     <i class="fas fa-right-from-bracket"></i>
                     <span>Logout</span>
@@ -97,7 +115,6 @@
                     <p class="categoria">Os Filmes do Momento!</p>
                     <div id="movies-list" class="lista-capas"></div>
             </div>
-
 
             <div class="featured caixa-capas">
                 <p class="categoria">As Séries que Estão Bombando!</p>
