@@ -55,6 +55,6 @@ function addSeriesToHTML() {
 
 document.addEventListener('DOMContentLoaded', function() {
     addMoviesToHTML();
-    addSeriesToHTML();
+    // addSeriesToHTML();
 });
 

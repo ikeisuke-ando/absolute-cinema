@@ -1,72 +1,59 @@
 package com.progweb.absolutecinema.model;
 
 import jakarta.persistence.*;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.Data;
 
 import java.util.List;
 
 @Entity
 @Table(name="series")
+@Data
 public class Series {
 
     public static final String TABLE_NAME = "series";
 
-    @Setter
-    @Getter
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name="id", unique = true)
     private Long id;
 
 
-    @Setter
-    @Getter
-    @Column(name="name", length = 255, nullable = false)
-    private String name;
+    @Column(name="title", length = 255, nullable = false)
+    private String title;
 
-    @Setter
-    @Getter
     @Column(name="series_genre", nullable = false)
     private String seriesGenre;
 
-    @Setter
-    @Getter
     @Column(name="poster")
     private String poster;
 
-    @Setter
-    @Getter
     @Column(name="year", nullable = false)
     private int year;
 
-    @Setter
-    @Getter
     @Column(name="rating", nullable = true)
     private double rating;
 
-    @Setter
-    @Getter
     @Column(name="episodes", nullable = false)
     private int episodes;
 
-    @Setter
-    @Getter
+    @Column(name="plot", nullable = false, columnDefinition = "TEXT")
+    private String plot;
+
     @JoinColumn(name="reviews")
     @OneToMany(targetEntity = Review.class)
     private List<Review> reviews;
 
-    @Setter
-    @Getter
-    @Column(name="gallery", length = 255, nullable = false)
+    @Column(name="gallery", length = 255)
     private String gallery;
 
     public Series(){
     }
 
-    public Series(Long id, String name, double rating) {
-        this.id = id;
-        this.name = name;
-        this.rating = rating;
+    public Series(String title, String seriesGenre, int year, int episodes, String plot) {
+        this.title = title;
+        this.seriesGenre = seriesGenre;
+        this.year = year;
+        this.episodes = episodes;
+        this.plot = plot;
     }
 }
