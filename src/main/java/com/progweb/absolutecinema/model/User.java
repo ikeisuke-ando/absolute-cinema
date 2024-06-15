@@ -25,11 +25,6 @@ public class User {
     @Size(max = 100, message = "O nome deve ter no máximo 100 caracteres.")
     private String name;
 
-    @Column(name = "user_name", length = 50, nullable = false)
-    @NotNull(message = "O nome de usuário não pode ser nulo.")
-    @Size(max = 50, message = "O nome de usuário deve ter no máximo 50 caracteres.")
-    private String username;
-
     @Column(name = "email", nullable = false, unique = true)
     @NotNull(message = "O email não pode ser nulo.")
     @Email(message = "O email deve ser válido.")
@@ -55,10 +50,9 @@ public class User {
     public User() {
     }
 
-    public User(Long id, String name, String username, String email, String login, String password, List<Review> reviews) {
+    public User(Long id, String name, String email, String login, String password, List<Review> reviews) {
         this.id = id;
         this.name = name;
-        this.username = username;
         this.email = email;
         this.login = login;
         this.password = password;

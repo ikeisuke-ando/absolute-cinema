@@ -1,15 +1,12 @@
 package com.progweb.absolutecinema.services;
 
 import com.progweb.absolutecinema.model.Movie;
-import com.progweb.absolutecinema.model.Review;
 import com.progweb.absolutecinema.model.Series;
 import com.progweb.absolutecinema.model.User;
 import com.progweb.absolutecinema.repositories.AdminRepository;
 import com.progweb.absolutecinema.repositories.MovieRepository;
 import com.progweb.absolutecinema.repositories.SeriesRepository;
-import org.antlr.v4.runtime.misc.LogManager;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.autoconfigure.kafka.KafkaProperties;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -43,7 +40,7 @@ public class AdminService {
     @Transactional
     public Series updateSeries(Series series){
         Series updateSeries = findSeriesById(series.getId());
-        updateSeries.setName(series.getName());
+        updateSeries.setTitle(series.getTitle());
         updateSeries.setEpisodes(series.getEpisodes());
         updateSeries.setPoster(series.getPoster());
         return this.seriesRepository.save(series);

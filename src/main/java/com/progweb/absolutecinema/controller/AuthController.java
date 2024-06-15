@@ -3,7 +3,6 @@ package com.progweb.absolutecinema.controller;
 import com.progweb.absolutecinema.model.User;
 import com.progweb.absolutecinema.repositories.LoginRepository;
 import com.progweb.absolutecinema.services.UserService;
-import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -48,11 +47,11 @@ public class AuthController {
     }
 
     @PostMapping("/signUp")
-    public String signUp(Model model, @Valid User user){
+    public String signUp(Model model, User user){
         try{
 
             if (user.getId() != null) {
-                if(user.getId() != null && user.getEmail() != null){
+                if(user.getEmail() != null){
                     this.userService.create(user);
                     return "redirect:/";
                 }
