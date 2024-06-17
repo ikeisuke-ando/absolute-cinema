@@ -78,18 +78,32 @@
                             <a href="/login" class="sidebar-link">Entrar</a>
                         </li>
                         <li class="sidebar-item">
-                            <a href="/profile" class="sidebar-link">Seu Perfil</a>
+                          <a href="/profile" class="sidebar-link">Perfil</a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="sidebar-item">
+                    <a href="#" class="sidebar-link collapsed has-dropdown" data-bs-toggle="collapse"
+                       data-bs-target=".company" aria-expanded="false" aria-controls="company">
+                        <i class="fas fa-bars"></i>
+                        <span>ADMIN</span>
+                    </a>
+                    <ul class="company sidebar-dropdown list-unstyled collapse" data-bs-parent=".sidebar">
+                        <li class="sidebar-item">
+                            <a href="/add" class="sidebar-link">Adicionar filme ao catálogo</a>
+                        </li>
+                        <li class="sidebar-item">
+                            <a href="series/createSeries" class="sidebar-link">Adicionar série ao catálogo</a>
+                        </li>
+                        <li class="sidebar-item">
+                            <a href="/movie" class="sidebar-link">Ver filmes</a>
+                        </li>
+                        <li class="sidebar-item">
+                            <a href="series/listSeries" class="sidebar-link">Ver séries</a>
                         </li>
                     </ul>
                 </li>
             </ul>
-
-            <div id="toggle-mode-container" class="sidebar-footer">
-                <a id="toggle-mode-link" href="" class="sidebar-link">
-                    <i class="fa-solid fa-moon"></i>
-                    <span>Modo noturno</span>
-                </a>
-            </div>
 
             <div class="sidebar-footer logout" th:if="${isLoggedIn}">
                 <a href="#" class="sidebar-link">

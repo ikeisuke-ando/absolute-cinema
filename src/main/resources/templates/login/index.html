@@ -88,13 +88,6 @@
             </li>
         </ul>
 
-        <div id="toggle-mode-container" class="sidebar-footer">
-            <a id="toggle-mode-link" href="" class="sidebar-link">
-                <i class="fa-solid fa-moon"></i>
-                <span>Modo noturno</span>
-            </a>
-        </div>
-
         <div class="sidebar-footer logout" th:if="${isLoggedIn}">
             <a href="#" class="sidebar-link">
                 <i class="fas fa-right-from-bracket"></i>
@@ -112,7 +105,7 @@
             <div class="d-flex flex-column align-items-stretch register_background bordas justify-content-between">
                 <div class ="d-flex flex-column align-items-center">
                     <h3 class="title-form">Login</h3>
-                    <h3 class="sub-title-form"> Ainda nao possui uma conta?Criar conta</h3>
+                    <h3 class="sub-title-form"> Ainda nao possui uma conta? <a href="/register">Criar conta</a></h3>
                 </div>
                 <form action="/signIn" method="POST" class="row g-3" id="login-form">
                     <input type="text" id="login" name="login" class="form-control bordas" placeholder="Nome de Usuario">

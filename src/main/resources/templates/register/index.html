@@ -87,13 +87,6 @@
             </li>
         </ul>
 
-        <div id="toggle-mode-container" class="sidebar-footer">
-            <a id="toggle-mode-link" href="" class="sidebar-link">
-                <i class="fa-solid fa-moon"></i>
-                <span>Modo noturno</span>
-            </a>
-        </div>
-
         <div class="sidebar-footer logout" th:if="${isLoggedIn}">
             <a href="#" class="sidebar-link">
                 <i class="fas fa-right-from-bracket"></i>
@@ -112,7 +105,7 @@
             <div class="d-flex flex-column align-items-stretch register_background bordas justify-content-between">
                 <div class ="d-flex flex-column align-items-center">
                     <h3 class="title-form">Criar Conta</h3>
-                    <h3 class="sub-title-form"> ja tem uma conta? Fazer login</h3>
+                    <h3 class="sub-title-form"> ja tem uma conta? <a href="/login">Fazer login</a></h3>
                 </div>
                 <form action="/signUp" method="POST" class="row g-3" id="register-form">
                     <input type="text" id="name" name="name" class="form-control bordas" placeholder="Apelido no Site">
@@ -124,7 +117,7 @@
                     <div id="email-error" class="alert alert-danger d-none" role="alert">Por favor, digitar um email valido!</div>
                     <div id="password-error" class="alert alert-danger d-none" role="alert">As senhas não coincidem. Por favor, confirme sua senha corretamente.</div>
                 </form>
-                <button class="btn btn-warning bordas me-md-2" form="register-form">Criar conta</button>
+                <button class="btn btn-warning bordas me-md-2" form="register-form" style="background-color: yellow;">Criar conta</button>
             </div>
 
         </section>

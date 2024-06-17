@@ -20,8 +20,12 @@ public class DatabaseInitializer {
         return args -> {
             try (Connection connection = dataSource.getConnection()) {
                 try (Statement statement = connection.createStatement()) {
-                    statement.execute("CREATE TABLE IF NOT EXISTS users (id SERIAL PRIMARY KEY, name VARCHAR(255), email VARCHAR(255))");
-                    statement.execute("INSERT INTO users (name, email) VALUES ('Admin', 'admin@adimin.com')");
+
+                    statement.execute("INSERT INTO `user` (id, admin, email, login, name, password) VALUES " +
+                        "(1, True, 'admin@admin.com', 'Admin', 'Administrador', 'root123'), " +
+                        "(2, False, 'usuario@usuario.com', 'Usu', 'Usuario', 'user123')");
+
+
                 }
             }
         };
