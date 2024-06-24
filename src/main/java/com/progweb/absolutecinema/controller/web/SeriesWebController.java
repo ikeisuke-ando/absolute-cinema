@@ -34,8 +34,10 @@ public class SeriesWebController {
     public String detailsSeries(@PathVariable Long id, Model model) {
         try {
             Optional<Series> series = seriesService.listById(id);
+
             if (series.isPresent()) {
                 model.addAttribute("series", series.get());
+                model.addAttribute("countTotalSeries", seriesService.countTotalSeries());
                 return "series/details-series";
             }
             throw new Exception("Deu um erro.");

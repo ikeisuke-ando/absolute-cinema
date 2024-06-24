@@ -50,13 +50,7 @@
                     </a>
                     <ul class="company sidebar-dropdown list-unstyled collapse" data-bs-parent=".sidebar">
                         <li class="sidebar-item">
-                            <a href="/add" class="sidebar-link">Adicionar filme ao catálogo</a>
-                        </li>
-                        <li class="sidebar-item">
                             <a href="series/createSeries" class="sidebar-link">Adicionar série ao catálogo</a>
-                        </li>
-                        <li class="sidebar-item">
-                            <a href="/movie" class="sidebar-link">Ver filmes</a>
                         </li>
                         <li class="sidebar-item">
                             <a href="series/listSeries" class="sidebar-link">Ver séries</a>
@@ -82,27 +76,6 @@
                         </li>
                     </ul>
                 </li>
-                <li class="sidebar-item">
-                    <a href="#" class="sidebar-link collapsed has-dropdown" data-bs-toggle="collapse"
-                       data-bs-target=".company" aria-expanded="false" aria-controls="company">
-                        <i class="fas fa-bars"></i>
-                        <span>ADMIN</span>
-                    </a>
-                    <ul class="company sidebar-dropdown list-unstyled collapse" data-bs-parent=".sidebar">
-                        <li class="sidebar-item">
-                            <a href="/add" class="sidebar-link">Adicionar filme ao catálogo</a>
-                        </li>
-                        <li class="sidebar-item">
-                            <a href="series/createSeries" class="sidebar-link">Adicionar série ao catálogo</a>
-                        </li>
-                        <li class="sidebar-item">
-                            <a href="/movie" class="sidebar-link">Ver filmes</a>
-                        </li>
-                        <li class="sidebar-item">
-                            <a href="series/listSeries" class="sidebar-link">Ver séries</a>
-                        </li>
-                    </ul>
-                </li>
             </ul>
 
             <div class="sidebar-footer logout" th:if="${isLoggedIn}">
@@ -116,11 +89,6 @@
         <div class="main p-1 background">
             <h1 class="absolute-cinema h1">ABSOLUTE CINEMA</h1>
             <h2 class="sub-absolute-cinema">As melhores análises vêm de gente como a gente</h2>
-
-            <div class="featured caixa-capas">
-                    <p class="categoria">Os Filmes do Momento!</p>
-                    <div id="movies-list" class="lista-capas"></div>
-            </div>
 
             <div class="featured caixa-capas">
                 <p class="categoria">As Séries que Estão Bombando!</p>

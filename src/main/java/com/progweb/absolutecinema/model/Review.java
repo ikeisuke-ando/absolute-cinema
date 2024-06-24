@@ -40,7 +40,7 @@ public class Review {
 
     @Setter
     @Getter
-    @Column(name="text", nullable = false)
+    @Column(name="text")
     private String text;
 
     @Setter
@@ -72,12 +72,14 @@ public class Review {
     public Review() {
     }
 
-    public Review(Long id, String title, double rating) {
+    public Review(Long id, String title, double rating, String text, User user) {
         this.id = id;
         this.title = title;
         this.rating = rating;
         this.upVote = 0;
         this.downVote = 0;
+        this.text = Objects.requireNonNullElse(text, "");
+        this.user = user;
     }
 
     @Override

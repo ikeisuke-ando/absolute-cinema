@@ -91,23 +91,28 @@
             <h2 class="sub-absolute-cinema">As melhores análises vêm de gente como a gente</h2>
 
             <div class="featured caixa-capas" style="height: 40rem;">
-                <h2 class="categoria" style="font-size: 50px;">Arcane</h2>
-                <p>Série - 2021 - 14 Episódios</p>
+                <h2 class="categoria" style="font-size: 50px;">Analises de outros usuários: </h2>
+
+                <div class="caixa-capas">
+                </div>
+
+
                 <div class="imagens-review">
-                <img src="/images/posters/series/arcane.png" class="capa-review">
-                <iframe width="560" height="315" src="https://www.youtube.com/embed/3MB3OK3Xnvs?si=6mBQKe0bwmCOOUp0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
                 <div class="estatisticas">
-                    <div class="notas estatisticas-box"><p>Avaliação</p><p>⭐ 9.0/10</p></div>
-                    
-                    <div class="popularidade estatisticas-box"><p>Popularidade</p><p>🔥 21º/100</p></div>
                 </div>
                 </div>
-                <button class="botao">Visualizar Avaliações</button>
+                <button id="reviewButton" class="botao" onclick="createReview()">Fazer uma critica</button>
                 <button class="botao" style="margin-left:20px;">Acessar Galeria</button>
+                <div class="caixa-capas">
+                    Sua análise:
+                </div>
             </div>
-            
         </div>
-
+    </div>
 </body>
-
+<script>
+    function createReview() {
+        location.href = 'http://localhost:8080/review/create';
+    }
+</script>
 </html>

@@ -30,8 +30,7 @@ async function loadTopSeries() {
             seriesElement.innerHTML = `
                  <a href="/series/${series.id}" class="serie-link">
                     <h3>${series.title}</h3>
-                    <p><strong>Rating:</strong> ${series.rating}</p>
-                    <p><strong>Gênero:</strong> ${series.genre}</p>
+                    <img src="/images/posters/series/arcane.png" alt="">
                 </a>
             `;
             seriesListElement.appendChild(seriesElement);

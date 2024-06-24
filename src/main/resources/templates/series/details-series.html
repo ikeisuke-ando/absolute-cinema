@@ -14,6 +14,7 @@
     <link rel="stylesheet" href="/css/series/form.css">
 
     <script src="/js/index/script.js"></script>
+    <script src="/js/series/script.js"></script>
     <script src="/js/index/movies.js"></script>
 
     <title>Absolute Cinema</title>
@@ -94,19 +95,18 @@
         <h2 class="sub-absolute-cinema">As melhores análises vêm de gente como a gente</h2>
 
         <div class="featured caixa-capas" style="height: 40rem;">
-            <h2 class="categoria" style="font-size: 50px;">Arcane</h2>
+            <h2 class="categoria" style="font-size: 50px;"><span th:text="${series.title}"></span></h2>
             <p> Genre: <span th:text="${series.seriesGenre}"></span></p>
-            <p>Série - <span th:text="${series.year}"></span> - <span th:text="${series.episodes}"></span> Episódios</p>
+            <p> Série - <span th:text="${series.year}"></span> - <span th:text="${series.episodes}"></span> Episódios</p>
             <div class="imagens-review">
                 <img src="/images/posters/series/arcane.png" class="capa-review">
                 <iframe width="560" height="315" src="https://www.youtube.com/embed/3MB3OK3Xnvs?si=6mBQKe0bwmCOOUp0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
                 <div class="estatisticas">
-                    <div class="notas estatisticas-box"><p>Avaliação</p><p>⭐ 9.0/10</p></div>
-
-                    <div class="popularidade estatisticas-box"><p>Popularidade</p><p>🔥 21º/100</p></div>
+                    <div class="notas estatisticas-box"><p>Avaliação</p>⭐<span th:text="${series.rating}"></span>/10</div>
                 </div>
+                <div id="serieRevId" hidden><span th:text="${series.id}"></span></div>
             </div>
-            <button class="botao">Visualizar Avaliações</button>
+            <button class="botao" onclick="redirectToReview()" >Visualizar Avaliações </button>
             <button class="botao" style="margin-left:20px;">Acessar Galeria</button>
         </div>
 

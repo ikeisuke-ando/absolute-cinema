@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -15,14 +15,14 @@
 
     <script src="/js/index/script.js"></script>
     <script src="/js/index/movies.js"></script>
-    <script src="/js/series/script.js"></script>
 
     <title>Absolute Cinema</title>
     <link rel="icon" href="/images/logo.ico"/>
-    <script src="../../static/js/series/script.js"></script>
 </head>
-<body>
-<!--side bar-->
+
+<body style="background-image: url('/images/posteresfilmes.png');">
+
+<!--sidebar-->
 <div class="wrapper">
     <aside class="sidebar">
         <a href="/">
@@ -35,12 +35,10 @@
         <ul class="sidebar-nav">
 
             <li class="sidebar-item">
-                <li class="sidebar-item">
-                    <a href="/" class="sidebar-link">
-                        <i class="fas fa-home"></i>
-                        <span>Home</span>
-                    </a>
-                </li>
+                <a href="/" class="sidebar-link">
+                    <i class="fas fa-home"></i>
+                    <span>Home</span>
+                </a>
             </li>
 
             <li class="sidebar-item">
@@ -60,7 +58,7 @@
                         <a href="/movie" class="sidebar-link">Ver filmes</a>
                     </li>
                     <li class="sidebar-item">
-                        <a href="listSeries" class="sidebar-link">Ver séries</a>
+                        <a href="series/listSeries" class="sidebar-link">Ver séries</a>
                     </li>
                 </ul>
             </li>
@@ -92,28 +90,70 @@
             </a>
         </div>
     </aside>
-    <!-- Pagina -->
+    <!-- Página -->
     <div class="main p-1 background form-series">
         <section class="container my-3">
             <div class="d-flex flex-column align-items-stretch register_background bordas justify-content-between">
                 <div class="d-flex flex-column align-items-center">
-                    <h3 class="title-form">Listagem de  Séries</h3>
-                    <div class="featured">
-                        <div id="series-list" class="lista-capas"></div>
-                    </div>
+                    <h3 class="title-form">Avaliando Série</h3>
+                </div>
+                <form id="seriesForm" class="row g-3">
+                    <input type="text" id="title" name="title" class="form-control bordas" placeholder="Título" required>
+                    <input type="number" id="rating" name="rating" class="form-control bordas" placeholder="Nota" min="0.0" max="10.0" step="0.1" required>
+                    <textarea id="review-text" name="reviewtxt" class="form-control bordas" placeholder="Diga o que achou da série." rows="4" required></textarea>
+                    <div id="form-error" class="alert alert-danger d-none" role="alert">Por favor, preencha todos os campos.</div>
+                    <button type="submit" class="btn btn-warning bordas me-md-2">Registrar avaliação</button>
+                </form>
+                <div id="success-message" class="alert alert-success d-none" role="alert">
+                    Avaliação anotada com sucesso!
+                </div>
+                <div id="error-message" class="alert alert-danger d-none" role="alert">
+                    Erro ao salvar avaliação.
                 </div>
             </div>
-            <div id="success-message" class="alert alert-success d-none" role="alert">
-                Série criada com sucesso!
-            </div>
-            <div id="error-message" class="alert alert-danger d-none" role="alert">
-                Erro ao criar série.
-            </div>
         </section>
-
     </div>
 </div>
 
-<script src="/js/series/script.js"></script>
+<script>
+    document.getElementById('seriesForm').addEventListener('submit', function(event) {
+        event.preventDefault();
+
+        const form = event.target;
+        const data = {
+            title: form.title.value,
+            rating: parseFloat(form.rating.value),
+            reviewtxt: form.reviewtxt.value,
+            user_id:  1
+        };
+
+        fetch('/api/review/create', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(data)
+        })
+            .then(response => {
+                if (response.ok) {
+                    return response.json();
+                } else {
+                    throw new Error('Erro ao criar avaliação');
+                }
+            })
+            .then(data => {
+                console.log('Avaliação criada com sucesso:', data);
+                document.getElementById('error-message').classList.add('d-none');
+                document.getElementById('success-message').classList.remove('d-none');
+                form.reset();
+            })
+            .catch(error => {
+                console.error('Erro:', error);
+                document.getElementById('success-message').classList.add('d-none');
+                document.getElementById('error-message').classList.remove('d-none');
+            });
+    });
+</script>
+
 </body>
 </html>

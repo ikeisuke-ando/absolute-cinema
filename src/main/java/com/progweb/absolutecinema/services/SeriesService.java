@@ -30,5 +30,8 @@ public class SeriesService {
         return seriesRepository.findAllByOrderByRatingDesc();
     }
 
+    public long countTotalSeries() {
+        return seriesRepository.count();
+    }
 
 }
