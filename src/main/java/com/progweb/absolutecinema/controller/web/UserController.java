@@ -1,4 +1,4 @@
-package com.progweb.absolutecinema.controller;
+package com.progweb.absolutecinema.controller.web;
 
 import com.progweb.absolutecinema.model.User;
 import com.progweb.absolutecinema.services.UserService;

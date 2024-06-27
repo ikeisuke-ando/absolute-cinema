@@ -1,4 +1,4 @@
-package com.progweb.absolutecinema.controller;
+package com.progweb.absolutecinema.controller.web;
 
 import com.progweb.absolutecinema.model.User;
 import com.progweb.absolutecinema.repositories.LoginRepository;
@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 
 
 @Controller
-public class AuthController {
+public class AuthWebController {
 
     @Autowired
     private LoginRepository loginRepository;

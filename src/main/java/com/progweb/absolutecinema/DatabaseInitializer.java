@@ -7,6 +7,7 @@ import org.springframework.context.annotation.Configuration;
 
 import javax.sql.DataSource;
 import java.sql.Connection;
+import java.sql.ResultSet;
 import java.sql.Statement;
 
 @Configuration
@@ -21,11 +22,15 @@ public class DatabaseInitializer {
             try (Connection connection = dataSource.getConnection()) {
                 try (Statement statement = connection.createStatement()) {
 
-                    statement.execute("INSERT INTO `user` (id, admin, email, login, name, password) VALUES " +
-                        "(1, True, 'admin@admin.com', 'Admin', 'Administrador', 'root123'), " +
-                        "(2, False, 'usuario@usuario.com', 'Usu', 'Usuario', 'user123')");
+                    ResultSet resultSet = statement.executeQuery("SELECT COUNT(*) FROM user");
+                    resultSet.next();
+                    int users = resultSet.getInt(1);
 
-
+                    if (users == 0) {
+                        statement.execute("INSERT INTO user (id, admin, email, login, name, password) VALUES " +
+                                "(1, True, 'admin@admin.com', 'Admin', 'Administrador', 'root123'), " +
+                                "(2, False, 'usuario@usuario.com', 'Usu', 'Usuario', 'user123')");
+                    }
                 }
             }
         };

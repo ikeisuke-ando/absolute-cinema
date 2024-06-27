@@ -1,4 +1,4 @@
-package com.progweb.absolutecinema.controller;
+package com.progweb.absolutecinema.controller.web;
 
 import com.progweb.absolutecinema.model.User;
 import com.progweb.absolutecinema.services.AdminService;
@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 @RequestMapping("/admin")
 @Validated
-public class AdminController {
+public class AdminWebController {
     @Autowired
     private UserService userService;
 

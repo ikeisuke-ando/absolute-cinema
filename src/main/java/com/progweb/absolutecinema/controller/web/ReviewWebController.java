@@ -1,4 +1,4 @@
-package com.progweb.absolutecinema.controller;
+package com.progweb.absolutecinema.controller.web;
 
 import com.progweb.absolutecinema.model.Review;
 import com.progweb.absolutecinema.services.ReviewService;
