@@ -23,40 +23,43 @@
     <!--side bar-->
     <div class="wrapper">
         <aside class="sidebar">
-            <div class="d-flex">
+            <a href="/">
                 <button class="toggle-btn" type="button">
                     <!--<i class="fa-solid fa-clapperboard"></i>-->
                     <img src="/images/logo.png">
                 </button>
-            </div>
+            </a>
 
             <ul class="sidebar-nav">
 
                 <li class="sidebar-item">
-                    <a href="#" class="sidebar-link">
+                <li class="sidebar-item">
+                    <a href="/" class="sidebar-link">
                         <i class="fas fa-home"></i>
                         <span>Home</span>
                     </a>
                 </li>
+                </li>
 
                 <li class="sidebar-item">
                     <a href="#" class="sidebar-link collapsed has-dropdown" data-bs-toggle="collapse"
-                        data-bs-target=".company" aria-expanded="false" aria-controls="company">
+                       data-bs-target=".company" aria-expanded="false" aria-controls="company">
                         <i class="fas fa-bars"></i>
-                        <span>Configuracoes</span>
+                        <span>ADMIN</span>
                     </a>
                     <ul class="company sidebar-dropdown list-unstyled collapse" data-bs-parent=".sidebar">
                         <li class="sidebar-item">
-                            <a href="#" class="sidebar-link">Sobre Nós</a>
+                            <a href="series/createSeries" class="sidebar-link">Adicionar série ao catálogo</a>
                         </li>
                         <li class="sidebar-item">
-                            <a href="#" class="sidebar-link">Contate-nos</a>
+                            <a href="listSeries" class="sidebar-link">Ver séries</a>
                         </li>
                     </ul>
                 </li>
+
                 <li class="sidebar-item">
                     <a href="#" class="sidebar-link collapsed has-dropdown" data-bs-toggle="collapse"
-                        data-bs-target=".company" aria-expanded="false" aria-controls="company">
+                       data-bs-target=".company" aria-expanded="false" aria-controls="company">
                         <i class="fa-solid fa-user"></i>
                         <span>Conta</span>
                     </a>
@@ -71,14 +74,7 @@
                 </li>
             </ul>
 
-            <div id="toggle-mode-container" class="sidebar-footer">
-                <a id="toggle-mode-link" href="" class="sidebar-link">
-                    <i class="fa-solid fa-moon"></i>
-                    <span>Modo noturno</span>
-                </a>
-            </div>
-
-            <div class="sidebar-footer">
+            <div class="sidebar-footer logout" th:if="${isLoggedIn}">
                 <a href="#" class="sidebar-link">
                     <i class="fas fa-right-from-bracket"></i>
                     <span>Logout</span>
