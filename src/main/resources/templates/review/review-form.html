@@ -13,8 +13,7 @@
     <link rel="stylesheet" href="/css/index/styles.css">
     <link rel="stylesheet" href="/css/series/form.css">
 
-    <script src="/js/index/script.js"></script>
-    <script src="/js/index/movies.js"></script>
+    <script src="/js/review/review.js"></script>
 
     <title>Absolute Cinema</title>
     <link rel="icon" href="/images/logo.ico"/>
@@ -92,7 +91,7 @@
                 </div>
                 <form id="seriesForm" class="row g-3">
                     <input type="text" id="title" name="title" class="form-control bordas" placeholder="Título" required>
-                    <input type="number" id="rating" name="rating" class="form-control bordas" placeholder="Nota" min="0.0" max="10.0" step="0.1" required>
+                    <select name="rating" id="rating" class="form-control bordas" title="De uma nota" required></select>
                     <textarea id="review-text" name="reviewtxt" class="form-control bordas" placeholder="Diga o que achou da série." rows="4" required></textarea>
                     <div id="form-error" class="alert alert-danger d-none" role="alert">Por favor, preencha todos os campos.</div>
                     <button type="submit" class="btn btn-warning bordas me-md-2">Registrar avaliação</button>
@@ -109,6 +108,16 @@
 </div>
 
 <script>
+
+    const ratingSelect = document.getElementById('rating');
+    for (let i = 0; i <= 100; i++) {
+        const option = document.createElement('option');
+        option.value = (i / 10).toFixed(1);
+        option.textContent = (i / 10).toFixed(1);
+        ratingSelect.appendChild(option);
+    }
+
+
     document.getElementById('seriesForm').addEventListener('submit', function(event) {
         event.preventDefault();
 
@@ -116,8 +125,8 @@
         const data = {
             title: form.title.value,
             rating: parseFloat(form.rating.value),
-            reviewtxt: form.reviewtxt.value,
-            user_id:  1
+            reviewtxt: form['review-text'].value,
+            user_id: 1
         };
 
         fetch('/api/review/create', {
@@ -128,22 +137,25 @@
             body: JSON.stringify(data)
         })
             .then(response => {
-                if (response.ok) {
-                    return response.json();
-                } else {
-                    throw new Error('Erro ao criar avaliação');
-                }
+                return response.text().then(text => {
+                    if (!response.ok) {
+                        throw new Error(text || 'Erro ao criar avaliação');
+                    }
+                    return text;
+                });
             })
-            .then(data => {
-                console.log('Avaliação criada com sucesso:', data);
+            .then(message => {
+                console.log('Avaliação criada com sucesso:', message);
                 document.getElementById('error-message').classList.add('d-none');
                 document.getElementById('success-message').classList.remove('d-none');
+                document.getElementById('success-message').textContent = message;
                 form.reset();
             })
             .catch(error => {
                 console.error('Erro:', error);
-                document.getElementById('success-message').classList.add('d-none');
+                document.getElementById('error-message').textContent = `Erro: ${error.message}`;
                 document.getElementById('error-message').classList.remove('d-none');
+                document.getElementById('success-message').classList.add('d-none');
             });
     });
 </script>
