@@ -1,0 +1,22 @@
+spring.application.name=absolute-cinema
+
+spring.sql.init.mode=always
+spring.jpa.defer-datasource-initialization=true
+
+spring.datasource.driver-class-name=com.mysql.cj.jdbc.Driver
+spring.datasource.url=jdbc:mysql://localhost:3306/absolute-cinema?createDatabaseIfNotExist=true
+spring.datasource.username=root
+spring.datasource.password=0123
+spring.jpa.hibernate.ddl-auto=update
+spring.jpa.show-sql= true
+
+spring.thymeleaf.enabled=true
+spring.thymeleaf.prefix=classpath:/templates/
+spring.thymeleaf.suffix=.html
+spring.thymeleaf.mode=HTML
+spring.thymeleaf.encoding=UTF-8
+spring.thymeleaf.servlet.content-type=text/html
+spring.web.resources.add-mappings=true
+
+jwt.public.key=classpath:app.pub
+jwt.private.key=classpath:app.key

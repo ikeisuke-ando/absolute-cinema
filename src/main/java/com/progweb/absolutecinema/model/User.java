@@ -34,9 +34,6 @@ public class User {
     @Column(name = "password", nullable = false)
     private String password;
 
-//    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
-//    private List<Review> reviews = new ArrayList<>();
-
     public User() {
     }
 
@@ -47,17 +44,6 @@ public class User {
         this.password = password;
         this.role = role;
     }
-
-//    public void addReview(Review review) {
-//        reviews.add(review);
-//        review.setUser(this);
-//    }
-//
-//    public void removeReview(Review review) {
-//        reviews.remove(review);
-//        review.setUser(null);
-//    }
-
     public boolean isLoginValid(LoginRequest loginRequest, PasswordEncoder passwordEncoder) {
         return passwordEncoder.matches(loginRequest.password(), this.password);
     }
