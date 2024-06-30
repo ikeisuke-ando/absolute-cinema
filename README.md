@@ -5,6 +5,7 @@ Antes de rodar o projeto:
 É uma aplicação que permite usuários escreverem críticas de diversas obras.
 Especificamente, ela permite que façam críticas e avaliem filmes, séries e/ou livros.
 
+>Renomear application.properties.example para application.properties.
 
 No arquivo application.properties
 
