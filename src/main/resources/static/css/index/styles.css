@@ -321,3 +321,9 @@ h2 {
     margin-top: 50px;
     margin-bottom: 50px;
   }
+
+.serie-item {
+    display: inline-block;
+    width: 200px;
+    margin: 10px;
+}

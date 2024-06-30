@@ -55,7 +55,7 @@
                             <a href="series/createSeries" class="sidebar-link">Adicionar série ao catálogo</a>
                         </li>
                         <li class="sidebar-item">
-                            <a href="listSeries" class="sidebar-link">Ver séries</a>
+                            <a href="series/listSeries" class="sidebar-link">Ver séries</a>
                         </li>
                     </ul>
                 </li>
@@ -77,8 +77,8 @@
                 </li>
             </ul>
 
-            <div class="sidebar-footer logout" th:if="${isLoggedIn}">
-                <a href="#" class="sidebar-link">
+            <div class="sidebar-footer logout" id="logout-menu" style="display: none;">
+                <a href="#" class="sidebar-link" onclick="logout()">
                     <i class="fas fa-right-from-bracket"></i>
                     <span>Logout</span>
                 </a>
@@ -88,9 +88,10 @@
         <div class="main p-1 background">
             <h1 class="absolute-cinema h1">ABSOLUTE CINEMA</h1>
             <h2 class="sub-absolute-cinema">As melhores análises vêm de gente como a gente</h2>
-
             <div class="featured caixa-capas">
                 <p class="categoria">As Séries que Estão Bombando!</p>
+                <div id="welcome-message" class="text-center my-3"></div>
+                <div id="error-message" class="alert alert-danger" style="display: none;"></div>
                 <div id="series-list" class="lista-capas"></div>
             </div>
         </div>

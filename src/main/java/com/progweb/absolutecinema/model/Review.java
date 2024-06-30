@@ -2,8 +2,6 @@ package com.progweb.absolutecinema.model;
 
 import jakarta.persistence.*;
 import lombok.Data;
-import lombok.Getter;
-import lombok.Setter;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedDate;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
@@ -20,36 +18,23 @@ import java.util.Objects;
 public class Review {
 
     public static final String TABLE_NAME = "review";
-
-    @Setter
-    @Getter
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name="id", unique = true)
+    @Column(name="review_id", unique = true)
     private Long id;
 
-    @Setter
-    @Getter
     @Column(name="title", nullable = false)
     private String title;
 
-    @Setter
-    @Getter
     @Column(name="rating")
     private double rating;
 
-    @Setter
-    @Getter
     @Column(name="text")
     private String text;
 
-    @Setter
-    @Getter
     @Column(name="up_vote")
     private int upVote;
 
-    @Setter
-    @Getter
     @Column(name="down_vote")
     private int downVote;
 
@@ -62,10 +47,8 @@ public class Review {
     @Column(name = "updated_at")
     private LocalDateTime updatedAt;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "user_id", nullable = false)
-    @Setter
-    @Getter
+    @ManyToOne
+    @JoinColumn(name = "user_id")
     private User user;
 
 

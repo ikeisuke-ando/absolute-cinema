@@ -53,7 +53,7 @@
                         <a href="series/createSeries" class="sidebar-link">Adicionar série ao catálogo</a>
                     </li>
                     <li class="sidebar-item">
-                        <a href="listSeries" class="sidebar-link">Ver séries</a>
+                        <a href="series/listSeries" class="sidebar-link">Ver séries</a>
                     </li>
                 </ul>
             </li>
@@ -117,7 +117,6 @@
         ratingSelect.appendChild(option);
     }
 
-
     document.getElementById('seriesForm').addEventListener('submit', function(event) {
         event.preventDefault();
 
@@ -125,7 +124,7 @@
         const data = {
             title: form.title.value,
             rating: parseFloat(form.rating.value),
-            reviewtxt: form['review-text'].value,
+            reviewtxt: form.reviewtxt.value,
             user_id: 1
         };
 
@@ -137,28 +136,25 @@
             body: JSON.stringify(data)
         })
             .then(response => {
-                return response.text().then(text => {
-                    if (!response.ok) {
-                        throw new Error(text || 'Erro ao criar avaliação');
-                    }
-                    return text;
-                });
+                if (response.ok) {
+                    return response.json();
+                } else {
+                    throw new Error('Erro ao criar avaliação');}
             })
-            .then(message => {
-                console.log('Avaliação criada com sucesso:', message);
+            .then(data => {
+                console.log('Avaliação criada com sucesso:', data);
                 document.getElementById('error-message').classList.add('d-none');
                 document.getElementById('success-message').classList.remove('d-none');
-                document.getElementById('success-message').textContent = message;
                 form.reset();
             })
             .catch(error => {
                 console.error('Erro:', error);
-                document.getElementById('error-message').textContent = `Erro: ${error.message}`;
-                document.getElementById('error-message').classList.remove('d-none');
                 document.getElementById('success-message').classList.add('d-none');
+                document.getElementById('error-message').classList.remove('d-none');
             });
     });
 </script>
+
 
 </body>
 </html>

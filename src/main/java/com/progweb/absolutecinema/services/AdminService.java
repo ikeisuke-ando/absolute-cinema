@@ -2,7 +2,6 @@ package com.progweb.absolutecinema.services;
 
 import com.progweb.absolutecinema.model.Movie;
 import com.progweb.absolutecinema.model.Series;
-import com.progweb.absolutecinema.model.User;
 import com.progweb.absolutecinema.repositories.AdminRepository;
 import com.progweb.absolutecinema.repositories.MovieRepository;
 import com.progweb.absolutecinema.repositories.SeriesRepository;
@@ -53,12 +52,5 @@ public class AdminService {
     public Series findSeriesById(Long id){
         Optional<Series> series = this.seriesRepository.findById(id);
         return series.orElseThrow(() -> new RuntimeException("Série não encontrada"));
-    }
-
-    public boolean isAdmin(User user){
-        if (user.getAdmin()){
-            return true;
-        }
-        return false;
     }
 }

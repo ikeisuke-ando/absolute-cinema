@@ -19,8 +19,6 @@
 
     <link rel="stylesheet" href="/css/index/styles.css">
 
-    <script src="/js/index/script.js"></script>
-
     <title>Absolute Cinema</title>
     <link rel="icon" href="/images/logo.ico"/>
 </head>
@@ -58,7 +56,7 @@
                         <a href="series/createSeries" class="sidebar-link">Adicionar série ao catálogo</a>
                     </li>
                     <li class="sidebar-item">
-                        <a href="listSeries" class="sidebar-link">Ver séries</a>
+                        <a href="series/listSeries" class="sidebar-link">Ver séries</a>
                     </li>
                 </ul>
             </li>
@@ -94,25 +92,19 @@
 
         <!-- Formulario de registro -->
         <section class="container my-3">
-
             <div class="d-flex flex-column align-items-stretch register_background bordas justify-content-between">
-                <div class ="d-flex flex-column align-items-center">
+                <div class="d-flex flex-column align-items-center">
                     <h3 class="title-form">Criar Conta</h3>
-                    <h3 class="sub-title-form"> ja tem uma conta? <a href="/login">Fazer login</a></h3>
+                    <h3 class="sub-title-form">Já tem uma conta? <a href="/login">Fazer login</a></h3>
                 </div>
-                <form action="/signUp" method="POST" class="row g-3" id="register-form">
-                    <input type="text" id="name" name="name" class="form-control bordas" placeholder="Apelido no Site">
-                    <input type="text" id="login" name="login" class="form-control bordas" placeholder="Nome de Usuario">
-                    <input type="text" id="email" name="email" class="form-control bordas" placeholder="Digite seu Email">
-                    <input type="password" id="password" name="password" class="form-control bordas" placeholder="Digite sua senha">
-                    <input type="password" id="confirm-password" name="confirm-password" class="form-control bordas" placeholder="Confirme sua senha">
-                    <div id="form-error" class="alert alert-danger d-none" role="alert"> Por favor preencha todos os campos.</div>
-                    <div id="email-error" class="alert alert-danger d-none" role="alert">Por favor, digitar um email valido!</div>
-                    <div id="password-error" class="alert alert-danger d-none" role="alert">As senhas não coincidem. Por favor, confirme sua senha corretamente.</div>
+                <form action="/users/create" method="POST" class="row g-3" id="register-form">
+                    <input type="text" id="name" name="name" class="form-control bordas" placeholder="Apelido no Site" required>
+                    <input type="text" id="username" name="username" class="form-control bordas" placeholder="Nome de Usuário" required>
+                    <input type="password" id="password" name="password" class="form-control bordas" placeholder="Digite sua senha" required>
+                    <div id="form-message" class="alert d-none" role="alert"></div>
                 </form>
                 <button class="btn btn-warning bordas me-md-2" form="register-form" style="background-color: yellow;">Criar conta</button>
             </div>
-
         </section>
     </div>
 
@@ -124,6 +116,53 @@
         crossorigin="anonymous"
 ></script>
 
+<script>
+    async function registerUser(name, username, password) {
+        try {
+            const response = await fetch('/users/create', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ name, username, password }),
+            });
+
+            if (!response.ok) {
+                throw new Error('Erro ao registrar usuário');
+            }
+
+            const result = await response.text();
+            return result; // Aqui você pode retornar algo do backend, como uma mensagem de sucesso
+        } catch (error) {
+            throw new Error('Erro ao conectar com o servidor');
+        }
+    }
+
+    document.addEventListener('DOMContentLoaded', function () {
+        const registerForm = document.getElementById('register-form');
+        const formMessage = document.getElementById('form-message');
+
+        registerForm.addEventListener('submit', async function (event) {
+            event.preventDefault();
+
+            const name = document.getElementById('name').value;
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+
+            try {
+                const result = await registerUser(name, username, password);
+                formMessage.classList.remove('d-none');
+                formMessage.classList.add('alert-success');
+                formMessage.textContent = 'Usuário registrado com sucesso!'; // Exibe a mensagem de sucesso recebida do backend
+            } catch (error) {
+                formMessage.classList.remove('d-none');
+                formMessage.classList.add('alert-danger');
+                formMessage.textContent = 'Erro ao registrar usuário. Tente novamente.';
+            }
+        });
+    });
+
+</script>
+
 </body>
 </html>
-
