@@ -5,8 +5,6 @@ import jakarta.persistence.*;
 import lombok.Data;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Set;
 
 @Entity
@@ -36,8 +34,8 @@ public class User {
     @Column(name = "password", nullable = false)
     private String password;
 
-    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<Review> reviews = new ArrayList<>();
+//    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
+//    private List<Review> reviews = new ArrayList<>();
 
     public User() {
     }
@@ -50,15 +48,15 @@ public class User {
         this.role = role;
     }
 
-    public void addReview(Review review) {
-        reviews.add(review);
-        review.setUser(this);
-    }
-
-    public void removeReview(Review review) {
-        reviews.remove(review);
-        review.setUser(null);
-    }
+//    public void addReview(Review review) {
+//        reviews.add(review);
+//        review.setUser(this);
+//    }
+//
+//    public void removeReview(Review review) {
+//        reviews.remove(review);
+//        review.setUser(null);
+//    }
 
     public boolean isLoginValid(LoginRequest loginRequest, PasswordEncoder passwordEncoder) {
         return passwordEncoder.matches(loginRequest.password(), this.password);

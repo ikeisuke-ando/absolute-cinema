@@ -247,9 +247,6 @@ body.dark-mode {
     --button-color: var(--button-color-dark);
 }
 
-.lista-capas{
-    padding: 20px;
-}
 
 h1{
     -webkit-text-stroke-width: 3px;

@@ -49,10 +49,10 @@
                     </a>
                     <ul class="company sidebar-dropdown list-unstyled collapse" data-bs-parent=".sidebar">
                         <li class="sidebar-item">
-                            <a href="series/createSeries" class="sidebar-link">Adicionar série ao catálogo</a>
+                            <a href="/series/createSeries" class="sidebar-link">Adicionar série ao catálogo</a>
                         </li>
                         <li class="sidebar-item">
-                            <a href="series/listSeries" class="sidebar-link">Ver séries</a>
+                            <a href="/series/listSeries" class="sidebar-link">Ver séries</a>
                         </li>
                     </ul>
                 </li>
@@ -96,12 +96,14 @@
                 <div class="imagens-review">
                 <div class="estatisticas">
                 </div>
+                    <div class="caixa-capas">
+                        Analises:
+                        <div id="review-list">
+                        </div>
+                    </div>
                 </div>
                 <button id="reviewButton" class="botao" onclick="createReview()">Fazer uma critica</button>
                 <button class="botao" style="margin-left:20px;">Acessar Galeria</button>
-                <div class="caixa-capas">
-                    Sua análise:
-                </div>
             </div>
         </div>
     </div>
@@ -110,5 +112,31 @@
     function createReview() {
         location.href = 'http://localhost:8080/review/create';
     }
+
+    async function loadReviews() {
+        try {
+            const response = await fetch('/api/review/list');
+            const reviewList = await response.json();
+            const reviewListElement = document.getElementById('review-list');
+
+            reviewListElement.innerHTML = '';
+
+            reviewList.forEach(review => {
+                const reviewElement = document.createElement('div');
+                reviewElement.classList.add('main');
+                reviewElement.innerHTML = `
+                    <h3>${review.title}</h3>
+                    <p>${review.text}</p>
+                    <p>${review.rating}</p>
+                </a>
+            `;
+                reviewListElement.appendChild(reviewElement);
+            });
+        } catch (error) {
+            console.error('Erro ao carregar séries:', error);
+        }
+    }
+    window.onload = loadReviews;
+
 </script>
 </html>

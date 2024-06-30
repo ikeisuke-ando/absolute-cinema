@@ -13,7 +13,7 @@
     <link rel="stylesheet" href="/css/index/styles.css">
     <link rel="stylesheet" href="/css/series/form.css">
 
-    <script src="/js/series/script.js"></script>
+    <script src="/js/review/review.js"></script>
 
     <title>Absolute Cinema</title>
     <link rel="icon" href="/images/logo.ico"/>
@@ -24,7 +24,6 @@
     <aside class="sidebar">
         <a href="/">
             <button class="toggle-btn" type="button">
-                <!--<i class="fa-solid fa-clapperboard"></i>-->
                 <img src="/images/logo.png">
             </button>
         </a>
@@ -90,8 +89,6 @@
             <p> Genre: <span th:text="${series.seriesGenre}"></span></p>
             <p> Série - <span th:text="${series.year}"></span> - <span th:text="${series.episodes}"></span> Episódios</p>
             <div class="imagens-review">
-                <img src="/images/posters/series/arcane.png" class="capa-review">
-                <iframe width="560" height="315" src="https://www.youtube.com/embed/3MB3OK3Xnvs?si=6mBQKe0bwmCOOUp0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
                 <div class="estatisticas">
                     <div class="notas estatisticas-box"><p>Avaliação</p>⭐<span th:text="${series.rating}"></span>/10</div>
                 </div>

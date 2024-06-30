@@ -29,7 +29,6 @@
     <aside class="sidebar">
         <a href="/">
             <button class="toggle-btn" type="button">
-                <!--<i class="fa-solid fa-clapperboard"></i>-->
                 <img src="/images/logo.png">
             </button>
         </a>
@@ -53,10 +52,10 @@
                 </a>
                 <ul class="company sidebar-dropdown list-unstyled collapse" data-bs-parent=".sidebar">
                     <li class="sidebar-item">
-                        <a href="series/createSeries" class="sidebar-link">Adicionar série ao catálogo</a>
+                        <a href="/series/createSeries" class="sidebar-link">Adicionar série ao catálogo</a>
                     </li>
                     <li class="sidebar-item">
-                        <a href="series/listSeries" class="sidebar-link">Ver séries</a>
+                        <a href="/series/listSeries" class="sidebar-link">Ver séries</a>
                     </li>
                 </ul>
             </li>
@@ -132,7 +131,7 @@
             }
 
             const result = await response.text();
-            return result; // Aqui você pode retornar algo do backend, como uma mensagem de sucesso
+            return result;
         } catch (error) {
             throw new Error('Erro ao conectar com o servidor');
         }
@@ -153,7 +152,7 @@
                 const result = await registerUser(name, username, password);
                 formMessage.classList.remove('d-none');
                 formMessage.classList.add('alert-success');
-                formMessage.textContent = 'Usuário registrado com sucesso!'; // Exibe a mensagem de sucesso recebida do backend
+                formMessage.textContent = 'Usuário registrado com sucesso!';
             } catch (error) {
                 formMessage.classList.remove('d-none');
                 formMessage.classList.add('alert-danger');

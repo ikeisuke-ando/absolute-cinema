@@ -47,22 +47,22 @@ public class Review {
     @Column(name = "updated_at")
     private LocalDateTime updatedAt;
 
-    @ManyToOne
-    @JoinColumn(name = "user_id")
-    private User user;
+
+//    @ManyToOne
+//    @JoinColumn(name = "user_id")
+//    private User user;
 
 
     public Review() {
     }
 
-    public Review(Long id, String title, double rating, String text, User user) {
+    public Review(Long id, String title, double rating, String text) {
         this.id = id;
         this.title = title;
         this.rating = rating;
         this.upVote = 0;
         this.downVote = 0;
         this.text = Objects.requireNonNullElse(text, "");
-        this.user = user;
     }
 
     @Override
